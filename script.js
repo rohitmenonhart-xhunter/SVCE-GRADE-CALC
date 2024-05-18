@@ -67,3 +67,6 @@ function calculateInternalMarks() {
 
     document.getElementById('internalResult').innerText = `Your calculated internal marks are: ${internalMarks} (AVG)`;
 }
+document.getElementById('bottomLogo').addEventListener('click', function() {
+    this.classList.toggle('enlarged');
+});
