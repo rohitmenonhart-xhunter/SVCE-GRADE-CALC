@@ -5,7 +5,7 @@ function calculateRequiredMarks() {
 
     let resultMessage;
     if (internalMarks < 0 || internalMarks > 50) {
-        resultMessage = "Please enter a valid internal mark between 0 and 50.";
+        resultMessage = "Please enter a valid internal mark";
     } else {
         if (externalMarksRequired < 45) {
             externalMarksRequired = 45;
@@ -75,9 +75,11 @@ function calculateInternalMarks() {
         return;
     }
 
-    const internalMarks = (
-        (cat1 + cat2 + cat3 + assignment1 + assignment2 + assignment3) / 6
-    ).toFixed(2);
+    const catAverage = (cat1 + cat2 + cat3) / 3;
+    const assignmentAverage = (assignment1 + assignment2 + assignment3) / 3;
+
+    const internalMarksRaw = ((catAverage * 0.7) + (assignmentAverage * 0.3)) * 0.4 * 2;
+    const internalMarks = Math.round(internalMarksRaw);
 
     document.getElementById('internalResult').innerText = `Your calculated internal marks are: ${internalMarks}`;
 }
