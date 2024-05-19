@@ -1,11 +1,12 @@
 function calculateRequiredMarks() {
     const internalMarks = parseFloat(document.getElementById('internalMarks').value);
-    const passingMarks = 50;
-    let externalMarksRequired = ((passingMarks - internalMarks) * 2).toFixed(2);
+    const passingMarks = 45;
+    const marks = 50;
+    let externalMarksRequired = Math.round(((marks - internalMarks) / 0.6).toFixed(2));
 
     let resultMessage;
-    if (internalMarks < 0 || internalMarks > 50) {
-        resultMessage = "Please enter a valid internal mark";
+    if (internalMarks < 0 || internalMarks > 40) {
+        resultMessage = "Please enter a valid internal mark between 0 and 40.";
     } else {
         if (externalMarksRequired < 45) {
             externalMarksRequired = 45;
@@ -36,7 +37,7 @@ function calculateGradeRequirements(internalMarks) {
     tableBody.innerHTML = '';
 
     grades.forEach(({ grade, minMarks }) => {
-        let externalMarksRequired = ((minMarks - internalMarks) * 2).toFixed(2);
+        let externalMarksRequired = ((minMarks - internalMarks) / 0.6).toFixed(2);
         if (externalMarksRequired < 45) {
             externalMarksRequired = 45;
         }
