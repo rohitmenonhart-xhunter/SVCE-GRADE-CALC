@@ -90,7 +90,7 @@ button:hover {
 p {
     margin-top: 20px;
     font-weight: bold;
-    color: #007bff;
+    color: #0f539b;
 }
 
 table {
@@ -134,4 +134,133 @@ tbody tr:nth-child(odd) td {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #0056b3;
+}
+
+/** for the intro page **/ 
+
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 120px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.button {
+    background: #6200ea;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background: #3700b3;
+}
+
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+h1, h2 {
+    color: #333;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin: 10px 0;
+}
+.faq dt {
+    font-weight: bold;
+}
+.faq dd {
+    margin: 0 0 10px 20px;
+}
+.contact {
+    margin-top: 20px;
+}
+
+.paragraph{
+    text-align: center;
+    margin-bottom: 50px;
+    
 }
