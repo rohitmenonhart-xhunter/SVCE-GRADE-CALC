@@ -9,8 +9,13 @@
 </head>
 <body>
     <div class="container">
+        <a href="index.html" style="position: absolute; top: 20px; left: 20px; color: #2c3e50; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; transition: all 0.3s ease;" 
+           onmouseover="this.style.transform='translateX(-5px)'" 
+           onmouseout="this.style.transform='translateX(0)'">
+           Back to Home
+        </a>
         <img src="logo.png" alt="Logo" class="logo">
-        <h1>Exam Marks Calculator (AVG)</h1>
+        <h1>Exam Marks Calculator</h1>
         <div class="section">
             <label for="internalMarks">Enter your internal marks:</label>
             <input type="number" id="internalMarks" max="50" min="0" placeholder="e.g., 35">
@@ -34,7 +39,8 @@
             </table>
         </div>
 
-        <h2>Want to calculate your Internal Marks ? fill in the details below!</h2>
+        <h2>Calculate Your Internal Marks</h2>
+        <p style="color: #2c3e50; font-size: 0.95rem; margin-top: 5px;">Fill in your CAT and Assignment marks below</p>
         <div class="section">
             <label for="cat1">CAT 1 Marks :</label>
             <input type="number" id="cat1" max="50" min="0" placeholder="e.g., 40"><br>
@@ -52,7 +58,7 @@
             <p id="internalResult"></p>
         </div>
 
-        <h3 style="font-size: smaller;">Developed by Rohit , ECE.</h3>
+        <h3 style="font-size: 0.9rem; color: #888; margin-top: 40px;">Developed by Rohit, ECE</h3>
         <img src="logo1.png" alt="Logo" class="logo bottom-logo" id="bottomLogo">
     </div>
     <script src="script.js"></script>

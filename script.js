@@ -6,20 +6,20 @@ function calculateRequiredMarks() {
 
     let resultMessage;
     if (internalMarks < 0 || internalMarks > 40) {
-        resultMessage = "Please enter a valid internal mark between 0 and 40.";
+        resultMessage = '<span style="color: #e74c3c; font-weight: 600;">Please enter a valid internal mark between 0 and 40.</span>';
     } else {
         if (externalMarksRequired < 45) {
             externalMarksRequired = 45;
         }
 
         if (externalMarksRequired <= 100) {
-            resultMessage = `You need to score at least ${externalMarksRequired} marks out of 100 in the external exam to pass.`;
+            resultMessage = `<span style="color: #27ae60; font-weight: 700; font-size: 1.15rem;">You need to score at least <strong style="color: #2c3e50;">${externalMarksRequired} marks</strong> out of 100 in the external exam to pass.</span>`;
         } else {
-            resultMessage = "It is not possible to pass the exam with the given internal marks.";
+            resultMessage = '<span style="color: #e74c3c; font-weight: 600;">It is not possible to pass the exam with the given internal marks.</span>';
         }
     }
 
-    document.getElementById('result').innerText = resultMessage;
+    document.getElementById('result').innerHTML = resultMessage;
     calculateGradeRequirements(internalMarks);
 }
 
@@ -72,17 +72,23 @@ function calculateInternalMarks() {
         assignment2 < 0 || assignment2 > 50 ||
         assignment3 < 0 || assignment3 > 50
     ) {
-        document.getElementById('internalResult').innerText = "Please enter valid marks between 0 and 50 for all fields.";
+        document.getElementById('internalResult').innerHTML = '<span style="color: #e74c3c; font-weight: 600;">Please enter valid marks between 0 and 50 for all fields.</span>';
         return;
     }
 
-    const catAverage = (cat1 + cat2 + cat3) / 3;
+    // Calculate average of assignments (add all 3, divide by 3) then multiply by 0.30
     const assignmentAverage = (assignment1 + assignment2 + assignment3) / 3;
+    const assignmentContribution = assignmentAverage * 0.30;
+    
+    // Calculate average of FAT/CAT marks (add all 3, divide by 3) then multiply by 0.70
+    const fatAverage = (cat1 + cat2 + cat3) / 3;
+    const fatContribution = fatAverage * 0.70;
+    
+    // Add both contributions to get the final internal marks
+    const internalMarks = assignmentContribution + fatContribution;
+    const internalMarksRounded = Math.round(internalMarks * 100) / 100; // Round to 2 decimal places
 
-    const internalMarksRaw = ((catAverage * 0.7) + (assignmentAverage * 0.3)) * 0.4 * 2;
-    const internalMarks = Math.round(internalMarksRaw);
-
-    document.getElementById('internalResult').innerText = `Your calculated internal marks are: ${internalMarks}`;
+    document.getElementById('internalResult').innerHTML = `<span style="font-size: 1.2rem; font-weight: 700; color: #2c3e50;">Your calculated internal marks are: ${internalMarksRounded}</span>`;
 }
 
 document.getElementById('bottomLogo').addEventListener('click', function() {
